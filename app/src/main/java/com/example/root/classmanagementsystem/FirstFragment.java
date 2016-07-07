@@ -1,9 +1,15 @@
 package com.example.root.classmanagementsystem;
 
-import android.content.Context;
-import android.net.Uri;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteOpenHelper;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.LoaderManager;
+import android.support.v4.content.CursorLoader;
+import android.support.v4.content.Loader;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,16 +18,18 @@ import android.view.ViewGroup;
 /**
  * A simple {@link Fragment} subclass.
  * Activities that contain this fragment must implement the
- * {//@link MainFragment.OnFragmentInteractionListener} interface
+ * {//@link FirstFragment.OnFragmentInteractionListener} interface
  * to handle interaction events.
- * Use the {@link MainFragment#newInstance} factory method to
+ * Use the {@link FirstFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class MainFragment extends Fragment {
+public class FirstFragment extends Fragment implements LoaderManager.LoaderCallbacks<Cursor> {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
+    protected RecyclerView mRecyclerView;
+    protected FirstAdapter mFirstAdapter;
 
     // TODO: Rename and change types of parameters
     private String mParam1;
@@ -29,7 +37,7 @@ public class MainFragment extends Fragment {
 
     //private OnFragmentInteractionListener mListener;
 
-    public MainFragment() {
+    public FirstFragment() {
         // Required empty public constructor
     }
 
@@ -39,11 +47,11 @@ public class MainFragment extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment MainFragment.
+     * @return A new instance of fragment FirstFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static MainFragment newInstance(String param1, String param2) {
-        MainFragment fragment = new MainFragment();
+    public static FirstFragment newInstance(String param1, String param2) {
+        FirstFragment fragment = new FirstFragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -64,9 +72,48 @@ public class MainFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_main, container, false);
+        getLoaderManager().initLoader(0,null,this);
+        View view = inflater.inflate(R.layout.fragment_main, container, false);
+
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
+        mRecyclerView = (RecyclerView) view.findViewById(R.id.recycler_this_week);
+        mRecyclerView.setHasFixedSize(true);
+        mRecyclerView.setLayoutManager(linearLayoutManager);
+        mFirstAdapter = new FirstAdapter(getContext());
+        mRecyclerView.setAdapter(mFirstAdapter);
+
+        return view;
+    }
+
+    @Override
+    public Loader<Cursor> onCreateLoader(int id, Bundle args) {
+
+        String whereArgument = CmsDatabaseContract.ClassEntry.COLUMN_DATE + " >= ? AND " +
+                CmsDatabaseContract.ClassEntry.COLUMN_DATE + " < ? ";
+        String[] whereArgs = new String[] {
+            String.valueOf(Utility.getFirstDayInLong()),
+            String.valueOf(Utility.getCurrentDateFromLong())
+        };
+        String orderBy = CmsDatabaseContract.ClassEntry.COLUMN_DATE;
+
+        CursorLoader cursorLoader = new CursorLoader(getActivity(), CmsDatabaseContract.
+                ClassEntry.CONTENT_URI,Utility.CLASS_INFO_COLUMNS,whereArgument,whereArgs,orderBy);
+        return cursorLoader;
+    }
+
+    @Override
+    public void onLoadFinished(Loader<Cursor> loader, Cursor data) {
+        //System.out.println("Cuesor length " + data.getCount());
+        mFirstAdapter.swapCursor(data);
+    }
+
+    @Override
+    public void onLoaderReset(Loader<Cursor> loader) {
+        mFirstAdapter.swapCursor(null);
     }
 }
+
+
 
  /*   // TODO: Rename method, update argument and hook method into UI event
     public void onButtonPressed(Uri uri) {

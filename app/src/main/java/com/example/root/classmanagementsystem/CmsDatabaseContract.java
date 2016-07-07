@@ -39,8 +39,10 @@ public class CmsDatabaseContract {
 
         public static final String CONTENT_TYPE = ContentResolver.
                 CURSOR_DIR_BASE_TYPE + "/" + CONTENT_AUTHORITY + "/" + PATH_CLASS_INFO;
+
         public static final String CONTENT_ITEM_TYPE = ContentResolver.
                 CURSOR_ITEM_BASE_TYPE + "/" + CONTENT_AUTHORITY + "/" + PATH_CLASS_INFO;
+
 
     }
 

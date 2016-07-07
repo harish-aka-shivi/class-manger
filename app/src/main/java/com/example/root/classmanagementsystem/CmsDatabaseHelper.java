@@ -10,12 +10,13 @@ import android.database.sqlite.SQLiteOpenHelper;
 public class CmsDatabaseHelper extends SQLiteOpenHelper {
 
     // If you change the database schema, you must increment the database version.
-    private static final int DATABASE_VERSION = 4;
-
+    private static final int DATABASE_VERSION = 10;
+    private static Context mContext;
     public static final String DATABASE_NAME = "class.db";
 
     public CmsDatabaseHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
+        mContext = context;
     }
 
 
@@ -31,7 +32,9 @@ public class CmsDatabaseHelper extends SQLiteOpenHelper {
                 CmsDatabaseContract.ClassEntry.COLUMN_SUBJECT_3 + " TEXT NOT NULL, " +
                 CmsDatabaseContract.ClassEntry.COLUMN_TEACHER_3 + " TEXT NOT NULL, " +
                 CmsDatabaseContract.ClassEntry.COLUMN_DATE +  " REAL NOT NULL" + ");";
+        System.out.println("this is on Create");
         db.execSQL(SQL_CREATE_CLASS_INFO_TABLE);
+        //new BulkInsertTask(mContext).execute();
     }
 
     @Override
