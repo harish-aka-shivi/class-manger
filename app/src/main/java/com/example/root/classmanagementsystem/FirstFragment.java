@@ -33,12 +33,9 @@ public class FirstFragment extends Fragment implements LoaderManager.LoaderCallb
     protected FirstAdapter mFirstAdapter;
     private static final int VERTICAL_ITEM_SPACE = 20;
     private static final int HORIZONTAL_ITEM_SPACE = 16;
-
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
-
-    //private OnFragmentInteractionListener mListener;
 
     public FirstFragment() {
         // Required empty public constructor
@@ -108,7 +105,6 @@ public class FirstFragment extends Fragment implements LoaderManager.LoaderCallb
 
     @Override
     public void onLoadFinished(Loader<Cursor> loader, Cursor data) {
-        //System.out.println("Cuesor length " + data.getCount());
         mFirstAdapter.swapCursor(data);
     }
 

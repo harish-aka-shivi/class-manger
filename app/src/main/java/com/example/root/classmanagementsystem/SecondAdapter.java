@@ -90,17 +90,12 @@ public class SecondAdapter extends RecyclerView.Adapter<SecondAdapter.ViewHolder
 
     @Override
     public int getItemCount() {
-        if (null == mCursor)
-        {   System.out.println( "get count is comin zero");
-            return 0;
-        }
-        System.out.println("get count is" + mCursor.getCount());
+        if (null == mCursor) return 0;
         return mCursor.getCount();
     }
 
     public void swapCursor(Cursor newCursor) {
         mCursor = newCursor;
         notifyDataSetChanged();
-
     }
 }

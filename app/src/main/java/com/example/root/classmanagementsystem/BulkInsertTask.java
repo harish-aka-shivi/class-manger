@@ -21,9 +21,7 @@ public class BulkInsertTask extends AsyncTask<Void,Void,Void> {
                 ClassEntry.CONTENT_URI,null,null);
         int insertedLines = mContext.getContentResolver().bulkInsert(CmsDatabaseContract.
                 ClassEntry.CONTENT_URI,cvArray);
-        System.out.println("Lines deleted" + deletedLines);
-        System.out.println("Inserted lines in dayta base");
-        System.out.println("Inserted lines " + insertedLines);
+        System.out.print("No of lines " + insertedLines);
         return null;
     }
 }

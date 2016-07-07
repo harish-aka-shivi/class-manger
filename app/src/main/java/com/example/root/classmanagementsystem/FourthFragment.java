@@ -24,7 +24,6 @@ public class FourthFragment extends Fragment implements LoaderManager.LoaderCall
     private static final int VERTICAL_ITEM_SPACE = 20;
     private static final int HORIZONTAL_ITEM_SPACE = 16;
 
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {

@@ -37,34 +37,6 @@ public class MainActivity extends AppCompatActivity  {
 
         mTabLayout = (TabLayout) findViewById(R.id.tabs);
         mTabLayout.setupWithViewPager(mViewPager);
-
-
-
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/yy");
-        Calendar calendar = Calendar.getInstance();
-        java.util.Date date =  calendar.getTime();
-        GregorianCalendar gregorianCalendar = new GregorianCalendar();
-        long timeInLong =  gregorianCalendar.getTimeInMillis();
-        calendar.setTimeInMillis(timeInLong);
-        long increasedTime = timeInLong + 604800000L;
-        String date1 = simpleDateFormat.format(calendar.getTime());
-        calendar.setTimeInMillis(increasedTime);
-        String date2 = simpleDateFormat.format(calendar.getTime());
-
-        String date3 = "" + calendar.get(Calendar.DAY_OF_WEEK) + "/" + calendar.get(Calendar.MONTH);
-
-        System.out.println("Date 3 is " + date3);
-
-        System.out.println("simple date 2 is " + date2);
-        System.out.println("simple date format is " + date1);
-
-        System.out.println("time in  long is  " + timeInLong);
-
-
-        System.out.println("Date is " + date.toString());
-
-        Utility.databaseFiller();
-
     }
 
     private void setupViewPager(ViewPager viewPager) {

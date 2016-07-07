@@ -90,11 +90,7 @@ public class FirstAdapter extends RecyclerView.Adapter<FirstAdapter.ViewHolder> 
 
     @Override
     public int getItemCount() {
-        if (null == mCursor)
-        {   System.out.println( "get count is comin zero");
-            return 0;
-        }
-        System.out.println("get count is" + mCursor.getCount());
+        if (null == mCursor) return 0;
         return mCursor.getCount();
     }
 

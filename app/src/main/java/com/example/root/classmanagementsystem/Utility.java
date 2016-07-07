@@ -53,7 +53,7 @@ public class Utility {
         long startDayTimeInMillis = currentTimeInMillis-MILLI_SECONDS_IN_A_WEEK;
         Vector<ContentValues> contentValuesVector = new Vector<>();
 
-        for (int i = 0;i < 28;i++) {
+        for (int i = 0;i < 29;i++) {
             ContentValues cv = new ContentValues();
             long  l = startDayTimeInMillis + MILLI_SECONDS_IN_A_DAY *i;
 
@@ -68,14 +68,12 @@ public class Utility {
         }
         ContentValues[] cVArray = new ContentValues[contentValuesVector.size()];
         contentValuesVector.toArray(cVArray);
-        System.out.println("lenght of array" + cVArray.length);
         return cVArray;
     }
 
     public static final long getCurrentDateInLong() {
         GregorianCalendar gregorianCalendar = new GregorianCalendar();
         long currentTimeInMillis = gregorianCalendar.getTimeInMillis();
-        System.out.print("getCurrentDateInLon" + currentTimeInMillis);
         return currentTimeInMillis;
     }
 
@@ -119,7 +117,7 @@ public class Utility {
             case 5:
                 return "Jun";
             case 6:
-                return "Jul";
+                return "July";
             case 7:
                 return "Aug";
             case 8:

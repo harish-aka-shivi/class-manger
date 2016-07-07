@@ -93,11 +93,7 @@ public class ThirdAdapter extends RecyclerView.Adapter<ThirdAdapter.ViewHolder> 
 
     @Override
     public int getItemCount() {
-        if (null == mCursor)
-        {   System.out.println( "get count is comin zero");
-            return 0;
-        }
-        System.out.println("get count is" + mCursor.getCount());
+        if (null == mCursor) return 0;
         return mCursor.getCount();
     }
 

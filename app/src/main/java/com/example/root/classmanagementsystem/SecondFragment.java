@@ -67,15 +67,14 @@ public class SecondFragment extends Fragment implements LoaderManager.LoaderCall
 
     @Override
     public void onLoadFinished(Loader<Cursor> loader, Cursor data) {
-        System.out.println("Cursor length  /second fragment " + data.getCount());
         mSecondAdapter.swapCursor(data);
-
     }
 
     @Override
     public void onLoaderReset(Loader<Cursor> loader) {
         mSecondAdapter.swapCursor(null);
     }
+
     /*
    Adding vertical spaces between CardViews
   */

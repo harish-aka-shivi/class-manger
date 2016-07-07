@@ -32,9 +32,7 @@ public class CmsDatabaseHelper extends SQLiteOpenHelper {
                 CmsDatabaseContract.ClassEntry.COLUMN_SUBJECT_3 + " TEXT NOT NULL, " +
                 CmsDatabaseContract.ClassEntry.COLUMN_TEACHER_3 + " TEXT NOT NULL, " +
                 CmsDatabaseContract.ClassEntry.COLUMN_DATE +  " REAL NOT NULL" + ");";
-        System.out.println("this is on Create");
         db.execSQL(SQL_CREATE_CLASS_INFO_TABLE);
-        //new BulkInsertTask(mContext).execute();
     }
 
     @Override

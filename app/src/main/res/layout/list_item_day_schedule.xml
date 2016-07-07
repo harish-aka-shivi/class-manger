@@ -34,13 +34,15 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/subjectPhysics"
                 android:gravity="center_horizontal|center_vertical"
-                android:text="this_ physics"/>
+                android:text="this_ physics"
+                android:elevation="@dimen/material_elevation"/>
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/teacherPhysics"
                 android:gravity="center_horizontal|center_vertical"
-                android:text="physics teacher"/>
+                android:text="physics teacher"
+                android:elevation="@dimen/material_elevation"/>
         </LinearLayout>
 
         <LinearLayout
@@ -57,13 +59,15 @@
                 android:layout_height="wrap_content"
                 android:text="chemistry"
                 android:gravity="center_horizontal|center_vertical"
-                android:id="@+id/subjectChemistry"/>
+                android:id="@+id/subjectChemistry"
+                android:elevation="@dimen/material_elevation"/>
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="chemistry teacher"
                 android:gravity="center_horizontal|center_vertical"
-                android:id="@+id/teacherChemistry"/>
+                android:id="@+id/teacherChemistry"
+                android:elevation="@dimen/material_elevation"/>
         </LinearLayout>
 
         <LinearLayout
@@ -82,23 +86,15 @@
                 android:layout_height="wrap_content"
                 android:text="maths"
                 android:gravity="center_horizontal|center_vertical"
-                android:id="@+id/subjectMaths"/>
+                android:id="@+id/subjectMaths"
+                android:elevation="@dimen/material_elevation"/>
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="maths teacher"
                 android:gravity="center_horizontal|center_vertical"
-                android:id="@+id/teacherMaths"/>
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="100dp"
-            android:layout_height="50dp"
-            android:layout_marginRight="47dp"
-            android:layout_alignTop="@+id/chemistryLinear"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentEnd="true"
-            android:layout_marginEnd="47dp">
+                android:id="@+id/teacherMaths"
+                android:elevation="@dimen/material_elevation"/>
         </LinearLayout>
 
 
