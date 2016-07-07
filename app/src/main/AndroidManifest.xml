@@ -18,7 +18,7 @@
 
         <provider
             android:authorities="com.example.root.classmanagementsystem"
-            android:name=".CmsDatabaseProvider"
+            android:name=".database.CmsDatabaseProvider"
             android:exported="true"
             android:syncable="true">
         </provider>

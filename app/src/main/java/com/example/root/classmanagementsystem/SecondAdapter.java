@@ -11,11 +11,11 @@ import android.widget.TextView;
 /**
  * Created by root on 7/7/16.
  */
-public class FirstAdapter extends RecyclerView.Adapter<FirstAdapter.ViewHolder> {
+public class SecondAdapter extends RecyclerView.Adapter<SecondAdapter.ViewHolder>{
     private Cursor mCursor;
     private Context mContext;
 
-    public FirstAdapter (Context context) {
+    public SecondAdapter (Context context) {
         mContext = context;
     }
     public static class ViewHolder extends RecyclerView.ViewHolder {
@@ -27,7 +27,7 @@ public class FirstAdapter extends RecyclerView.Adapter<FirstAdapter.ViewHolder> 
         private final TextView mTeacher3;
         private final TextView mDate;
 
-        public ViewHolder (final View view, final FirstAdapter firstAdapter) {
+        public ViewHolder (final View view, final SecondAdapter secondAdapter) {
             super(view);
             mDate = (TextView) view.findViewById(R.id.dateView);
             mSubject1 = (TextView) view.findViewById(R.id.subjectPhysics);

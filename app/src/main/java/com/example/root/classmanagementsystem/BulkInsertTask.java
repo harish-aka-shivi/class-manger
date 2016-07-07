@@ -4,6 +4,8 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.os.AsyncTask;
 
+import com.example.root.classmanagementsystem.database.CmsDatabaseContract;
+
 /**
  * Created by root on 6/7/16.
  */
@@ -19,7 +21,7 @@ public class BulkInsertTask extends AsyncTask<Void,Void,Void> {
                 ClassEntry.CONTENT_URI,null,null);
         int insertedLines = mContext.getContentResolver().bulkInsert(CmsDatabaseContract.
                 ClassEntry.CONTENT_URI,cvArray);
-        System.out.println("Lines Inserted" + deletedLines);
+        System.out.println("Lines deleted" + deletedLines);
         System.out.println("Inserted lines in dayta base");
         System.out.println("Inserted lines " + insertedLines);
         return null;

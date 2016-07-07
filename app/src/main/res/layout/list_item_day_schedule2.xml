@@ -14,7 +14,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Todays date"
-            android:id="@+id/dateView"
+            android:id="@+id/dateView1"
             android:gravity="center_horizontal|center_vertical"/>
 
         <LinearLayout
@@ -28,17 +28,17 @@
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
             android:background="@color/colorDarkGrey"
-            android:id="@+id/physicsLinear">
+            android:id="@+id/physicsLinear1">
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/subjectPhysics"
+                android:id="@+id/subjectPhysics1"
                 android:gravity="center_horizontal|center_vertical"
                 android:text="this_ physics"/>
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/teacherPhysics"
+                android:id="@+id/teacherPhysics1"
                 android:gravity="center_horizontal|center_vertical"
                 android:text="physics teacher"/>
         </LinearLayout>
@@ -49,53 +49,53 @@
             android:layout_height="50dp"
             android:background="@color/colorDarkGrey"
             android:layout_marginTop="140dp"
-            android:layout_alignLeft="@+id/physicsLinear"
-            android:layout_alignStart="@+id/physicsLinear"
-            android:id="@+id/chemistryLinear">
+            android:layout_alignLeft="@+id/physicsLinear1"
+            android:layout_alignStart="@+id/physicsLinear1"
+            android:id="@+id/chemistryLinear1">
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="chemistry"
                 android:gravity="center_horizontal|center_vertical"
-                android:id="@+id/subjectChemistry"/>
+                android:id="@+id/subjectChemistry1"/>
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="chemistry teacher"
+                android:text="chemistry teacher1"
                 android:gravity="center_horizontal|center_vertical"
-                android:id="@+id/teacherChemistry"/>
+                android:id="@+id/teacherChemistry1"/>
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="100dp"
             android:layout_height="50dp"
             android:layout_marginRight="47dp"
-            android:layout_alignTop="@+id/physicsLinear"
+            android:layout_alignTop="@+id/physicsLinear1"
             android:layout_alignParentRight="true"
             android:layout_alignParentEnd="true"
             android:background="@color/colorDarkGrey"
             android:orientation="vertical"
             android:layout_marginEnd="47dp"
-            android:id="@+id/mathsLinear">
+            android:id="@+id/mathsLinear1">
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="maths"
                 android:gravity="center_horizontal|center_vertical"
-                android:id="@+id/subjectMaths"/>
+                android:id="@+id/subjectMaths1"/>
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="maths teacher"
                 android:gravity="center_horizontal|center_vertical"
-                android:id="@+id/teacherMaths"/>
+                android:id="@+id/teacherMaths1"/>
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="100dp"
             android:layout_height="50dp"
             android:layout_marginRight="47dp"
-            android:layout_alignTop="@+id/chemistryLinear"
+            android:layout_alignTop="@+id/chemistryLinear1"
             android:layout_alignParentRight="true"
             android:layout_alignParentEnd="true"
             android:layout_marginEnd="47dp">

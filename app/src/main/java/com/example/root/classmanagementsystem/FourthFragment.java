@@ -15,89 +15,42 @@ import android.view.ViewGroup;
 
 import com.example.root.classmanagementsystem.database.CmsDatabaseContract;
 
-
 /**
- * A simple {@link Fragment} subclass.
- * Activities that contain this fragment must implement the
- * {//@link FirstFragment.OnFragmentInteractionListener} interface
- * to handle interaction events.
- * Use the {@link FirstFragment#newInstance} factory method to
- * create an instance of this fragment.
+ * Created by root on 7/7/16.
  */
-public class FirstFragment extends Fragment implements LoaderManager.LoaderCallbacks<Cursor> {
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
+public class FourthFragment extends Fragment implements LoaderManager.LoaderCallbacks<Cursor> {
     protected RecyclerView mRecyclerView;
-    protected FirstAdapter mFirstAdapter;
+    protected FourthAdapter mFourthAdapter;
     private static final int VERTICAL_ITEM_SPACE = 20;
     private static final int HORIZONTAL_ITEM_SPACE = 16;
 
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
-
-    //private OnFragmentInteractionListener mListener;
-
-    public FirstFragment() {
-        // Required empty public constructor
-    }
-
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment FirstFragment.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static FirstFragment newInstance(String param1, String param2) {
-        FirstFragment fragment = new FirstFragment();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
-    }
-
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
-    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         getLoaderManager().initLoader(0,null,this);
-        View view = inflater.inflate(R.layout.fragment_main, container, false);
+        View view = inflater.inflate(R.layout.fragment_fourth, container, false);
 
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
-        mRecyclerView = (RecyclerView) view.findViewById(R.id.recycler_first_week);
+        mRecyclerView = (RecyclerView) view.findViewById(R.id.recycler_fourth_week);
         mRecyclerView.setHasFixedSize(true);
         mRecyclerView.setLayoutManager(linearLayoutManager);
         mRecyclerView.addItemDecoration(new VerticalSpaceItemDecoration(VERTICAL_ITEM_SPACE));
         mRecyclerView.addItemDecoration(new HorizontalSpaceItemDecoration(HORIZONTAL_ITEM_SPACE));
-        mFirstAdapter = new FirstAdapter(getContext());
-        mRecyclerView.setAdapter(mFirstAdapter);
+        mFourthAdapter = new FourthAdapter(getContext());
+        mRecyclerView.setAdapter(mFourthAdapter);
 
         return view;
     }
 
     @Override
     public Loader<Cursor> onCreateLoader(int id, Bundle args) {
-
         String whereArgument = CmsDatabaseContract.ClassEntry.COLUMN_DATE + " >= ? AND " +
                 CmsDatabaseContract.ClassEntry.COLUMN_DATE + " < ? ";
         String[] whereArgs = new String[] {
-            String.valueOf(Utility.getFirstDayInLong()),
-            String.valueOf(Utility.getCurrentDateInLong())
+                String.valueOf(Utility.getFourthBreakPointInLong()),
+                String.valueOf(Utility.getFifthBreakPointInLong())
         };
         String orderBy = CmsDatabaseContract.ClassEntry._ID + " ASC";
 
@@ -108,18 +61,18 @@ public class FirstFragment extends Fragment implements LoaderManager.LoaderCallb
 
     @Override
     public void onLoadFinished(Loader<Cursor> loader, Cursor data) {
-        //System.out.println("Cuesor length " + data.getCount());
-        mFirstAdapter.swapCursor(data);
+        mFourthAdapter.swapCursor(data);
+
     }
 
     @Override
     public void onLoaderReset(Loader<Cursor> loader) {
-        mFirstAdapter.swapCursor(null);
+        mFourthAdapter.swapCursor(null);
     }
 
     /*
-    Adding vertical spaces between CardViews
-   */
+   Adding vertical spaces between CardViews
+  */
     public class VerticalSpaceItemDecoration extends RecyclerView.ItemDecoration {
         private final int mVerticalSpaceHeight;
 
@@ -150,8 +103,5 @@ public class FirstFragment extends Fragment implements LoaderManager.LoaderCallb
             outRect.left = mHorizontalSpaceHeight;
             outRect.right = mHorizontalSpaceHeight;
         }
-
     }
 }
-
-

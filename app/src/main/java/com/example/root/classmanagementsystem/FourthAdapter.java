@@ -2,6 +2,10 @@ package com.example.root.classmanagementsystem;
 
 import android.content.Context;
 import android.database.Cursor;
+import android.os.Bundle;
+import android.support.v4.content.CursorLoader;
+import android.support.v4.content.Loader;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,11 +15,12 @@ import android.widget.TextView;
 /**
  * Created by root on 7/7/16.
  */
-public class FirstAdapter extends RecyclerView.Adapter<FirstAdapter.ViewHolder> {
+public class FourthAdapter extends RecyclerView.Adapter<FourthAdapter.ViewHolder> {
+
     private Cursor mCursor;
     private Context mContext;
 
-    public FirstAdapter (Context context) {
+    public FourthAdapter (Context context) {
         mContext = context;
     }
     public static class ViewHolder extends RecyclerView.ViewHolder {
@@ -27,7 +32,7 @@ public class FirstAdapter extends RecyclerView.Adapter<FirstAdapter.ViewHolder> 
         private final TextView mTeacher3;
         private final TextView mDate;
 
-        public ViewHolder (final View view, final FirstAdapter firstAdapter) {
+        public ViewHolder (final View view, final FourthAdapter fourthAdapter) {
             super(view);
             mDate = (TextView) view.findViewById(R.id.dateView);
             mSubject1 = (TextView) view.findViewById(R.id.subjectPhysics);

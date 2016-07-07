@@ -1,4 +1,4 @@
-package com.example.root.classmanagementsystem;
+package com.example.root.classmanagementsystem.database;
 
 import android.content.ContentResolver;
 import android.content.ContentUris;

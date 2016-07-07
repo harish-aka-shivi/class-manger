@@ -11,11 +11,14 @@ import android.widget.TextView;
 /**
  * Created by root on 7/7/16.
  */
-public class FirstAdapter extends RecyclerView.Adapter<FirstAdapter.ViewHolder> {
+public class ThirdAdapter extends RecyclerView.Adapter<ThirdAdapter.ViewHolder> {
     private Cursor mCursor;
     private Context mContext;
+    private static final int VERTICAL_ITEM_SPACE = 20;
+    private static final int HORIZONTAL_ITEM_SPACE = 16;
 
-    public FirstAdapter (Context context) {
+
+    public ThirdAdapter (Context context) {
         mContext = context;
     }
     public static class ViewHolder extends RecyclerView.ViewHolder {
@@ -27,7 +30,7 @@ public class FirstAdapter extends RecyclerView.Adapter<FirstAdapter.ViewHolder> 
         private final TextView mTeacher3;
         private final TextView mDate;
 
-        public ViewHolder (final View view, final FirstAdapter firstAdapter) {
+        public ViewHolder (final View view, final ThirdAdapter thirdAdapter) {
             super(view);
             mDate = (TextView) view.findViewById(R.id.dateView);
             mSubject1 = (TextView) view.findViewById(R.id.subjectPhysics);
@@ -103,4 +106,5 @@ public class FirstAdapter extends RecyclerView.Adapter<FirstAdapter.ViewHolder> 
         notifyDataSetChanged();
 
     }
+
 }

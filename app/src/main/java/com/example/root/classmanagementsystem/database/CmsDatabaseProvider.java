@@ -1,4 +1,4 @@
-package com.example.root.classmanagementsystem;
+package com.example.root.classmanagementsystem.database;
 
 import android.content.ContentProvider;
 import android.content.ContentValues;
@@ -7,7 +7,6 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.net.Uri;
 import android.support.annotation.Nullable;
-import android.widget.Switch;
 
 /**
  * Created by root on 6/7/16.
